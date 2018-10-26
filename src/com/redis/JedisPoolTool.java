@@ -8,5 +8,4 @@ package com.redis;
 
 public class JedisPoolTool {
 
-	
 }

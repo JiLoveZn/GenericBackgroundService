@@ -11,7 +11,7 @@
         <context:component-scan base-package="com"/>
         <mvc:interceptors>
 			<mvc:interceptor>
-				<mvc:mapping path="/**com."/>
+				<mvc:mapping path="/**"/>
 				<mvc:exclude-mapping path="/"/>
 				<mvc:exclude-mapping path="/"/> 
 				<bean class=""></bean>
