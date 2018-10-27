@@ -14,7 +14,7 @@ public class Users {
 	private String password;
 	private String email;
 	private String phonenumber;
-	private int authority;
+	private int authority;//用户类型
 	
 	public Users(){
 		

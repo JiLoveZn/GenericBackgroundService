@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dao.UsersMapper;
 import com.entity.Users;
@@ -12,6 +13,7 @@ import com.service.UsersService;
  * Copyright (C) 2018 ChenJi. All rights reserved.
  */
 
+@Service
 public class UsersServiceImpl implements UsersService{
 
 	@Autowired

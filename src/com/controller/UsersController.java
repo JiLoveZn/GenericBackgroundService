@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ import net.sf.json.JSONObject;
  * Copyright (C) 2018 ChenJi. All rights reserved.
  */
 
+@Controller
 public class UsersController {
 
 	@Autowired
@@ -53,11 +55,18 @@ public class UsersController {
 		JsonInfo jsonInfo = new JsonInfo();
 		Users users = usersService.userLogin(user);
 		if(users != null){
-			HttpSession session = request.getSession();
-			session.setAttribute("user", users);
-			jsonInfo.setState("1");
+			if(users.getAuthority()==1){
+				HttpSession session = request.getSession();
+				session.setAttribute("user", users);
+				jsonInfo.setState("1");//管理员登录成功
+			}
+			if(users.getAuthority()==2){
+				HttpSession session = request.getSession();
+				session.setAttribute("user", users);
+				jsonInfo.setState("2");//普通用户登录成功
+			}
 		}else{
-			jsonInfo.setState("0");
+			jsonInfo.setState("0");//登录失败
 		}
 		return jsonInfo;
 	}

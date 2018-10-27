@@ -12,9 +12,9 @@
         <mvc:interceptors>
 			<mvc:interceptor>
 				<mvc:mapping path="/**"/>
-				<mvc:exclude-mapping path="/"/>
-				<mvc:exclude-mapping path="/"/> 
-				<bean class=""></bean>
+				<mvc:exclude-mapping path="/register.action"/>
+				<mvc:exclude-mapping path="/userLogin.action"/> 
+				<bean class="com.interceptor.UserLoginInterceptor"></bean>
 			</mvc:interceptor>
 		</mvc:interceptors>
         <!-- 注解驱动 -->
